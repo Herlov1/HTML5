@@ -1,0 +1,414 @@
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(130deg, rgba(0,0,0,1) 0%, rgba(0,7,20,1) 18%, rgba(9,0,20,1) 42%, rgba(23,13,0,1) 65%, rgba(14,18,0,1) 84%, rgba(13,22,0,1) 100%);
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 32px;
+}
+/*
+FLAGG
+ */
+
+#cont{
+    background-color: transparent;
+    padding-top: 16px;
+    width: 20px;
+    height: 14px;
+    z-index: 200;
+    margin-left: 20px;
+}
+
+#inner-cont{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition:transform;
+    transform-style: preserve-3d;
+    transition-duration: 2s;
+    transition-delay: 2s;
+
+}
+
+#cont:hover #inner-cont{
+    transform: rotateY(-180deg);
+}
+
+#cont:hover{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    padding: 5%;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+#cont:hover img {
+    visibility: hidden;
+}
+#cont:hover #flag-front {
+    visibility: visible;
+}
+#cont:hover #flag-back {
+    visibility: visible;
+    transition-delay: 2s;
+}
+
+#flag-front, #flag-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+}
+
+#flag-front{
+    background: url("images/Flag-Australia.webp") no-repeat;
+    background-clip: border-box;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+#flag-back{
+    background-color: black;
+    color: aliceblue;
+    transform: rotateY(180deg);
+    visibility: hidden;
+}
+
+
+
+/*
+ NAVIGASJON
+*/
+.navbar-flag {
+    height: 1em;
+}
+.navbar-main ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar-main {
+    font-size: 20px;
+    background: rgb(8, 47, 72);
+    background: linear-gradient(194deg, rgb(1, 4, 15) 0%, rgb(6, 4, 47) 62%, rgb(27, 2, 77) 100%);display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navbar-main li {
+    display: inline-block;
+    text-align: center;
+}
+.navbar-main li:first-child {
+    margin-left: 15px;
+}
+.navbar-main li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px;
+    margin: 0;
+}
+.navbar-main .navbar-link {
+    width: 77%;
+    justify-content: space-around;
+}
+
+.navbar-main li a:hover {
+    background: rgba(4, 1, 26, 0.904);
+}
+.navbar-main li a:visited {
+    color: white;
+}
+.navbar-main li a {
+    color: white;
+}
+
+/*
+ NAVIGASJON SLUTT
+*/
+
+.main-body {
+    height: 96vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.layout-underpages {
+    display: flex;
+    justify-content: center;
+    height: 96vh;
+}
+
+/*
+RULLETEKST
+ */
+.scrolling-text-outer-wrapper {
+    top: 15%;
+    position: absolute;
+    padding: 30px 30px 30px 10px;
+    height: 63vh;
+    width: 30%;
+    border: 1px solid #383838;
+    border-radius: 10px;
+    display:flex;
+    overflow-wrap: break-word;
+    overflow: hidden;
+
+}
+.scrolling-text-wrapper {
+    position: relative;
+    top: 100%;
+    left: 0;
+    width: 1600px;
+    font-family: sans-serif;
+    text-align: left;
+    color: white;
+    animation: 80s credits linear infinite;
+    animation-play-state: running;
+}
+.scrolling-text-title {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+@keyframes credits {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -130%;
+    }
+}
+#stop-scrolling-text {
+    display: none;
+}
+#start-scrolling-text {
+    display: none;
+}
+#stop-scrolling-text ~ label:hover {
+    cursor: pointer;
+}
+#stop-scrolling-text ~ label {
+    color: darkred;
+    border-radius: 5px;
+    border: 2px solid darkred;
+    padding: 10px;
+    height: 20px;
+    margin-right: 5px;
+}
+#start-scrolling-text ~ label {
+    display: none;
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 10px;
+    height: 20px;
+    margin-right: 5px;
+}
+#stop-scrolling-text:checked ~ .scrolling-text-wrapper{
+    animation-name: credits;
+    animation-play-state: paused;
+}
+#start-scrolling-text:checked ~ .scrolling-text-wrapper{
+    animation-name: credits;
+    animation-play-state: running;
+}
+
+/*
+RULLETEKST SLUTT
+ */
+
+/*container-fun-fact start*/ /*alternativ: fun-fact start*/
+
+.container-fun-fact {
+    height: 60%;
+    width: 29%;
+    position: absolute;
+    top: 45%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    border: solid transparent 5px;
+}
+
+.container-for-fun-fact-box {
+    border: solid 2px transparent;
+    width: 20%;
+    height: 20%;
+    top: 1%;
+    left: 40%;
+    position: relative;
+}
+
+.fun-fact-box {
+    perspective: 500px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    top: 100px;
+    left: 100px;
+    transform: rotate3d( 1, 1, 0,-20deg);
+    transform-style: preserve-3d;
+    animation-name: fun-fact-box-rotate;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.fun-fact-side {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 4%;
+    color: white;
+    background: rgb(0,87,255);
+    background: linear-gradient(180deg, rgb(0, 16, 49) 0%, rgb(45, 11, 65) 47%, rgb(45, 0, 0) 100%);
+    border: 2px solid white;
+    font-size: 24px;
+    box-sizing: border-box;
+    position: absolute;
+
+}
+
+/*fun-fact-box-X-side plassering start*/
+
+#fun-fact-box-right-side {
+    left: 50%;
+    top: 2.5%;
+    height: 109%;
+    transform: rotateY(90deg);
+}
+
+#fun-fact-box-front-side {
+    left: 11%;
+    bottom: 8%;
+    transform: translateZ(85px);
+}
+
+#fun-fact-box-top-side {
+    width: 109%;
+    right: 0%;
+    bottom: 47%;
+    transform: rotateX(90deg);
+
+}
+
+/*fun-fact-box-X-side plassering slutt*/
+
+
+/*her starter hover for box*/
+
+.fun-fact-box:hover {
+    cursor: pointer;
+    animation-name: fun-fact-box-stop-rotate;
+}
+
+/*animasjon av fun-fact-box start*/
+@keyframes fun-fact-box-rotate {
+    0% {
+        rotate: 5deg;
+    }
+    25% {
+        rotate: 0deg;
+    }
+    50% {
+        rotate: -5deg;
+    }
+    75% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 5deg;
+    }
+}
+
+@keyframes fun-fact-box-stop-rotate {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+
+/*animasjon av fun-fact-box slutt*/
+
+.container-for-fun-fact-info-drop {
+    background-color: red;
+    width: 90%;
+    height: 75%;
+    top: 25%;
+    left: 5%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    background: black;
+    border: 2px solid transparent;
+    border-radius: 5%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fun-fact-info-drop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.container-fun-fact:hover .container-for-fun-fact-info-drop{
+    opacity: 0.8;
+}
+
+/* slutt container-fun-fact*/
+/*alternativ: fun-fact slutt*/
+
+
+/*
+BILDE GALLERI
+ */
+
+.picture-gallery {
+    height: 30%;
+    width: 30%;
+    max-height: 70vh;
+    position: absolute;
+    border: 2px transparent solid;
+    border-radius: 15px;
+    background-color: transparent;
+    left: 0%;
+    top: 15%;
+    text-align: center;
+}
+.picture-gallery-text {
+    font-family: Lucida Handwriting, bold, cursive;
+    font-size: 40px;
+    padding-top: 5%;
+    color: rgb(0,87,255);
+}
+
+.picture-gallery:hover{
+    height: 70%;
+    width: 30%;
+    cursor: pointer;
+    animation-name: picture-gallary;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+img{
+    width: 100%;
+}
+.picture-gallery:hover h3{
+    display: none;
+}
+
+/*
+BILDE GALLERI SLUTT
+ */
+

@@ -1,0 +1,19 @@
+@keyframes picture-gallary{
+    0% {
+        background-image: url(images/box-jellyfish-1.png);
+        background-size: 100% 100%;
+    }
+    33%{
+        background-image: url(images/box-jellyfish-2.png);
+        background-size: 100% 100%;
+    }
+    66%{
+        background-image: url(images/box-jellyfish-3.png);
+        background-size: 100% 100%;
+    }
+    100%{
+        background-image: url(images/box-jellyfish-1.png);
+        background-size: 100% 100%;
+    }
+
+}
